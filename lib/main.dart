@@ -1,5 +1,6 @@
 // lib/main.dart
 import 'package:flutter/material.dart';
+import 'package:hydrobuddy2/login.dart';
 import 'package:hydrobuddy2/water_intake_mode.dart';
 import 'package:provider/provider.dart';
 
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: WaterIntakeHome(),
+        home: LoginPage(),
       ),
     );
   }

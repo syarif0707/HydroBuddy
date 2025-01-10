@@ -33,6 +33,8 @@ flutter:
 
   # Material Design icons
   uses-material-design: true
+  assets:
+    - assets/images/hydrobuddy.png
 
   #
     # Adding assets for the application

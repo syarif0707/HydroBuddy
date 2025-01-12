@@ -8,7 +8,7 @@ class WaterGoalsPage extends StatefulWidget {
 }
 
 class _WaterGoalsPageState extends State<WaterGoalsPage> {
-  String dropdownValue = 'One';
+  String dropdownValue = 'Choose goal';
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,14 @@ class _WaterGoalsPageState extends State<WaterGoalsPage> {
       appBar: AppBar(
         title: const Text('Water Goals'), // AppBar Title
       ),
-      body: Center(
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('images/background.png'),
+            fit: BoxFit.cover,
+          ),
+        ),
+      child: Center(
         child: DropdownButton<String>(
           value: dropdownValue,
           icon: const Icon(Icons.menu),
@@ -32,20 +39,25 @@ class _WaterGoalsPageState extends State<WaterGoalsPage> {
           },
           items: const [
             DropdownMenuItem<String>(
-              value: 'One',
-              child: Text('One'),
+              value: 'Choose goal',
+              child: Text('Choose goal'),
             ),
             DropdownMenuItem<String>(
-              value: 'Two',
-              child: Text('Two'),
+              value: '2000ml',
+              child: Text('2000ml'),
             ),
             DropdownMenuItem<String>(
-              value: 'Three',
-              child: Text('Three'),
+              value: '2500ml',
+              child: Text('2500ml'),
+            ),
+            DropdownMenuItem<String>(
+              value: '3000ml',
+              child: Text('3000ml'),
             ),
           ],
         ),
       ),
-    );
+      )
+  );
   }
 }

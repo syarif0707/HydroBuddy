@@ -3,10 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:hydrobuddy2/login.dart';
 import 'package:hydrobuddy2/water_intake_mode.dart';
 import 'package:provider/provider.dart';
+import 'package:hydrobuddy2/watergoals.dart';
+
 
 void main() {
   runApp(MyApp());
 }
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -84,6 +87,16 @@ class WaterIntakeHome extends StatelessWidget {
               },
               child: Text('Reset Intake'),
               ),
+            SizedBox(height: 10),
+            ElevatedButton(
+              onPressed: () {
+               Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => WaterGoalsPage()), // Navigate to WaterGoalsPage
+              ); // Reset intake
+              },
+              child: Text('Change Water Goal'),
+              )
               ],
               ),
             ],

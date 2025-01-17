@@ -91,7 +91,7 @@ class WaterIntakeHome extends StatelessWidget {
             Expanded(
               flex: 1,
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 50.0),
+                padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [

@@ -4,6 +4,8 @@ import 'package:hydrobuddy2/water_intake_mode.dart';
 import 'package:provider/provider.dart';
 
 class WaterGoalsPage extends StatelessWidget {
+  const WaterGoalsPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     final waterIntakeModel = Provider.of<WaterIntakeModel>(context);

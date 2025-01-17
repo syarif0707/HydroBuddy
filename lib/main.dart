@@ -57,10 +57,10 @@ class WaterIntakeHome extends StatelessWidget {
                   alignment: Alignment.center,
                   children: [
                     Container(
-                      width: 300,
-                      height: 300,
+                      width: 200,
+                      height: 200,
                       decoration: BoxDecoration(
-                        color: Colors.blue.withOpacity(0.90),
+                        color: const Color.fromARGB(255, 50, 137, 208).withOpacity(0.90),
                         shape: BoxShape.circle,
                       ),
                     ),
@@ -91,7 +91,7 @@ class WaterIntakeHome extends StatelessWidget {
             Expanded(
               flex: 1,
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 30.0),
+                padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 50.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [

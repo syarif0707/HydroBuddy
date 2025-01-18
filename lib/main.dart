@@ -65,20 +65,15 @@ class WaterIntakeHome extends StatelessWidget {
                       ),
                     ),
                     Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        // Water Goal text
                         Padding(
-                          padding: const EdgeInsets.only(bottom: 40.0), // Adjust to move text higher
-                          child: const Text(
-                            'Water Intake Goals',
-                            style: TextStyle(fontSize: 24),
+                          padding: const EdgeInsets.only(bottom: 10.0),
+                          child: Text(
+                            'Goals: ${waterIntakeModel.waterGoal}',
+                            style: const TextStyle(fontSize: 24),
                           ),
                         ),
-                        Text(
-                          '${waterIntakeModel.waterGoal}',
-                          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
-                        ),
-                        const Spacer(), // Push intake text lower inside the circle
                         Text(
                           '${waterIntakeModel.intake} ml',
                           style: const TextStyle(
@@ -86,7 +81,6 @@ class WaterIntakeHome extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        const Spacer(), // Space below for centering
                       ],
                     ),
                   ],

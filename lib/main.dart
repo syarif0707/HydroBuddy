@@ -49,19 +49,25 @@ class WaterIntakeHome extends StatelessWidget {
         ),
         child: Column(
           children: [
-            // Center content (Circle with water goal and intake)
+            // Circular Progress Indicator with water intake information
             Expanded(
               flex: 3,
               child: Center(
                 child: Stack(
                   alignment: Alignment.center,
                   children: [
-                    Container(
+                    SizedBox(
                       width: 250,
                       height: 250,
-                      decoration: BoxDecoration(
-                        color: const Color.fromARGB(255, 50, 137, 208).withOpacity(0.90),
-                        shape: BoxShape.circle,
+                      child: CircularProgressIndicator(
+                        value: waterIntakeModel.waterGoal > 0
+                            ? waterIntakeModel.intake / waterIntakeModel.waterGoal
+                            : 0.0, // Avoid division by zero
+                        strokeWidth: 10,
+                        backgroundColor: Colors.grey.shade300,
+                        valueColor: const AlwaysStoppedAnimation<Color>(
+                          Color.fromARGB(255, 50, 137, 208),
+                        ),
                       ),
                     ),
                     Column(
@@ -91,7 +97,7 @@ class WaterIntakeHome extends StatelessWidget {
             Expanded(
               flex: 1,
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical:5.0),
+                padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [

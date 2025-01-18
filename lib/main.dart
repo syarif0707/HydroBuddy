@@ -57,8 +57,8 @@ class WaterIntakeHome extends StatelessWidget {
                   alignment: Alignment.center,
                   children: [
                     Container(
-                      width: 200,
-                      height: 200,
+                      width: 250,
+                      height: 250,
                       decoration: BoxDecoration(
                         color: const Color.fromARGB(255, 50, 137, 208).withOpacity(0.90),
                         shape: BoxShape.circle,
@@ -71,7 +71,7 @@ class WaterIntakeHome extends StatelessWidget {
                           padding: const EdgeInsets.only(bottom: 10.0),
                           child: Text(
                             'Goals: ${waterIntakeModel.waterGoal}',
-                            style: const TextStyle(fontSize: 24),
+                            style: const TextStyle(fontSize: 20),
                           ),
                         ),
                         Text(

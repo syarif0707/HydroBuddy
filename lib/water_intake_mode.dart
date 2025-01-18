@@ -1,10 +1,10 @@
 import 'package:flutter/foundation.dart';
 
 class WaterIntakeModel extends ChangeNotifier {
-  int intake = 0;
-  String waterGoal = 'Choose goal';
+  double intake = 0;
+  double waterGoal = 0.0;
 
-  void addIntake(int amount) {
+  void addIntake(double amount) {
     intake += amount;
     notifyListeners();
   }
@@ -14,7 +14,7 @@ class WaterIntakeModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  void updateWaterGoal(String newGoal) {
+  void updateWaterGoal(double newGoal) {
     waterGoal = newGoal;
     notifyListeners();
   }

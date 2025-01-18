@@ -9,54 +9,48 @@ class WaterGoalsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final waterIntakeModel = Provider.of<WaterIntakeModel>(context);
+    final TextEditingController controller = TextEditingController(
+      text: waterIntakeModel.waterGoal > 0
+          ? waterIntakeModel.waterGoal.toString()
+          : "",
+    );
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Water Goals'),
+        title: const Text('Set Water Goal'),
       ),
-      body: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('images/background.png'),
-            fit: BoxFit.cover,
-          ),
-        ),
-        child: Center(
-          child: DropdownButton<String>(
-            value: waterIntakeModel.waterGoal,
-            icon: const Icon(Icons.menu),
-            style: const TextStyle(color: Colors.black),
-            underline: Container(
-              height: 2,
-              color: Colors.blue,
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            TextField(
+              controller: controller,
+              keyboardType: TextInputType.number,
+              decoration: const InputDecoration(
+                labelText: 'Water Goal (ml)',
+                hintText: 'Enter your daily water goal in ml',
+              ),
             ),
-            onChanged: (String? newValue) {
-              if (newValue != null) {
-                waterIntakeModel.updateWaterGoal(newValue);
-              }
-            },
-            items: const [
-              DropdownMenuItem<String>(
-                value: 'Choose goal',
-                child: Text('Choose goal'),
-              ),
-              DropdownMenuItem<String>(
-                value: '2000ml',
-                child: Text('2000ml'),
-              ),
-              DropdownMenuItem<String>(
-                value: '2500ml',
-                child: Text('2500ml'),
-              ),
-              DropdownMenuItem<String>(
-                value: '3000ml',
-                child: Text('3000ml'),
-              ),
-            ],
-          ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                final newGoal = double.tryParse(controller.text);
+                if (newGoal != null && newGoal > 0) {
+                  waterIntakeModel.updateWaterGoal(newGoal);
+                  Navigator.pop(context);
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('Please enter a valid water goal.'),
+                    ),
+                  );
+                }
+              },
+              child: const Text('Set Goal'),
+            ),
+          ],
         ),
       ),
     );
   }
 }
-

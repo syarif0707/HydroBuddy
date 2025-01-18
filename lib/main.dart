@@ -36,6 +36,9 @@ class WaterIntakeHome extends StatelessWidget {
   Widget build(BuildContext context) {
     final waterIntakeModel = Provider.of<WaterIntakeModel>(context);
 
+    final waterGoal = waterIntakeModel.waterGoal;
+    final intake = waterIntakeModel.intake;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Water Intake Tracker'),
@@ -60,9 +63,7 @@ class WaterIntakeHome extends StatelessWidget {
                       width: 250,
                       height: 250,
                       child: CircularProgressIndicator(
-                        value: waterIntakeModel.waterGoal > 0
-                            ? waterIntakeModel.intake / waterIntakeModel.waterGoal
-                            : 0.0, // Avoid division by zero
+                        value: waterGoal > 0 ? intake / waterGoal : 0.0, // Avoid division by zero
                         strokeWidth: 10,
                         backgroundColor: Colors.grey.shade300,
                         valueColor: const AlwaysStoppedAnimation<Color>(
@@ -76,12 +77,12 @@ class WaterIntakeHome extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.only(bottom: 10.0),
                           child: Text(
-                            'Goals: ${waterIntakeModel.waterGoal}',
+                            'Goal: ${waterGoal > 0 ? waterGoal.toStringAsFixed(0) : "Not set"} ml',
                             style: const TextStyle(fontSize: 20),
                           ),
                         ),
                         Text(
-                          '${waterIntakeModel.intake} ml',
+                          '${intake.toStringAsFixed(0)} ml',
                           style: const TextStyle(
                             fontSize: 48,
                             fontWeight: FontWeight.bold,
@@ -119,7 +120,7 @@ class WaterIntakeHome extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                               builder: (context) =>
-                                  WaterGoalsPage()), // Navigate to WaterGoalsPage
+                                  const WaterGoalsPage()), // Navigate to WaterGoalsPage
                         );
                       },
                       child: const Text('Change Water Goal'),

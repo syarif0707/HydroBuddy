@@ -65,15 +65,20 @@ class WaterIntakeHome extends StatelessWidget {
                       ),
                     ),
                     Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
+                        // Water Goal text
                         Padding(
-                          padding: const EdgeInsets.only(bottom: 20.0),
-                          child: Text(
-                            'Water Intake Goals: ${waterIntakeModel.waterGoal}',
-                            style: const TextStyle(fontSize: 24),
+                          padding: const EdgeInsets.only(bottom: 40.0), // Adjust to move text higher
+                          child: const Text(
+                            'Water Intake Goals',
+                            style: TextStyle(fontSize: 24),
                           ),
                         ),
+                        Text(
+                          '${waterIntakeModel.waterGoal}',
+                          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
+                        ),
+                        const Spacer(), // Push intake text lower inside the circle
                         Text(
                           '${waterIntakeModel.intake} ml',
                           style: const TextStyle(
@@ -81,6 +86,7 @@ class WaterIntakeHome extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
+                        const Spacer(), // Space below for centering
                       ],
                     ),
                   ],
@@ -91,7 +97,7 @@ class WaterIntakeHome extends StatelessWidget {
             Expanded(
               flex: 1,
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
+                padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical:5.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
@@ -101,14 +107,12 @@ class WaterIntakeHome extends StatelessWidget {
                       },
                       child: const Text('Add 250 ml'),
                     ),
-                    const SizedBox(height: 10),
                     ElevatedButton(
                       onPressed: () {
                         waterIntakeModel.resetIntake(); // Reset intake
                       },
                       child: const Text('Reset Intake'),
                     ),
-                    const SizedBox(height: 10),
                     ElevatedButton(
                       onPressed: () {
                         Navigator.push(

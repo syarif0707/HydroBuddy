@@ -1,4 +1,3 @@
-//lib/watergoals
 import 'package:flutter/material.dart';
 import 'package:hydrobuddy2/water_intake_mode.dart';
 import 'package:provider/provider.dart';
@@ -19,37 +18,52 @@ class WaterGoalsPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Set Water Goal'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            TextField(
-              controller: controller,
-              keyboardType: TextInputType.number,
-              decoration: const InputDecoration(
-                labelText: 'Water Goal (ml)',
-                hintText: 'Enter your daily water goal in ml',
+      body: Stack(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('images/background1.png'), 
+                fit: BoxFit.cover,
               ),
             ),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                final newGoal = double.tryParse(controller.text);
-                if (newGoal != null && newGoal > 0) {
-                  waterIntakeModel.updateWaterGoal(newGoal);
-                  Navigator.pop(context);
-                } else {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text('Please enter a valid water goal.'),
+          ),
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  TextField(
+                    controller: controller,
+                    keyboardType: TextInputType.number,
+                    decoration: const InputDecoration(
+                      labelText: 'Water Goal (ml)',
+                      hintText: 'Enter your daily water goal in ml',
                     ),
-                  );
-                }
-              },
-              child: const Text('Set Goal'),
+                  ),
+                  const SizedBox(height: 20),
+                  ElevatedButton(
+                    onPressed: () {
+                      final newGoal = double.tryParse(controller.text);
+                      if (newGoal != null && newGoal > 0) {
+                        waterIntakeModel.updateWaterGoal(newGoal);
+                        Navigator.pop(context);
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('Please enter a valid water goal.'),
+                          ),
+                        );
+                      }
+                    },
+                    child: const Text('Set Goal'),
+                  ),
+                ],
+              ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

@@ -46,7 +46,7 @@ class WaterIntakeHome extends StatelessWidget {
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('images/background.png'),
+            image: AssetImage('images/maindart.jpg'),
             fit: BoxFit.cover,
           ),
         ),
@@ -98,9 +98,9 @@ class WaterIntakeHome extends StatelessWidget {
             Expanded(
               flex: 1,
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
+                padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.end, // Align buttons to the bottom
                   children: [
                     ElevatedButton(
                       onPressed: () {
@@ -108,19 +108,21 @@ class WaterIntakeHome extends StatelessWidget {
                       },
                       child: const Text('Add 250 ml'),
                     ),
+                    const SizedBox(height: 10), // Space between buttons
                     ElevatedButton(
                       onPressed: () {
                         waterIntakeModel.resetIntake(); // Reset intake
                       },
                       child: const Text('Reset Intake'),
                     ),
+                    const SizedBox(height: 10), // Space between buttons
                     ElevatedButton(
                       onPressed: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) =>
-                                  const WaterGoalsPage()), // Navigate to WaterGoalsPage
+                            builder: (context) =>
+                              const WaterGoalsPage()), // Navigate to WaterGoalsPage
                         );
                       },
                       child: const Text('Change Water Goal'),

@@ -10,7 +10,7 @@
 - HydroBuddy is a mobile application designed for Computer Science students at UiTM Kuala Terengganu. 
   HydroBuddy aims to tackle this issue by offering a convenient solution for tracking and achieving daily water intake goals. 
 
-### OBjectives :
+### Ojectives 
 - To remind users to stay hydrated throughout the day.
 - To help users set and achieve personalized water intake goals based on their needs.
 - To allow users to log their water intake effortlessly.

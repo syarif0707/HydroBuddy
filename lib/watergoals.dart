@@ -23,7 +23,7 @@ class WaterGoalsPage extends StatelessWidget {
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('images/background1.png'), 
+                image: AssetImage('assets/images/background1.png'), 
                 fit: BoxFit.cover,
               ),
             ),
